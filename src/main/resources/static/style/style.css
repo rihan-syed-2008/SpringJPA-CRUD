@@ -1,0 +1,503 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #0b0b0f;
+    color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =========================
+   ADD FOOD PAGE
+   ========================= */
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.intro h1 {
+    font-size: 58px;
+    line-height: 1;
+    letter-spacing: -3px;
+    margin-bottom: 20px;
+}
+
+.intro h1 span {
+    color: #ff6b35;
+}
+
+.intro p {
+    color: #999;
+    font-size: 17px;
+    line-height: 1.7;
+    max-width: 420px;
+}
+
+.tag {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 7px 12px;
+    border: 1px solid #29292f;
+    border-radius: 50px;
+    color: #aaa;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.card {
+    background: #15151a;
+    border: 1px solid #29292f;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.card h2 {
+    font-size: 25px;
+    margin-bottom: 7px;
+}
+
+.card-subtitle {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 14px 15px;
+    border-radius: 10px;
+    border: 1px solid #303038;
+    background: #0e0e12;
+    color: white;
+    font-size: 15px;
+    outline: none;
+    transition: 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #ff6b35;
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+.availability {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background: #0e0e12;
+    border: 1px solid #303038;
+    border-radius: 10px;
+}
+
+.availability label {
+    margin: 0;
+    color: #ddd;
+}
+
+.availability input {
+    width: 18px;
+    height: 18px;
+    accent-color: #ff6b35;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 10px;
+    background: #ff6b35;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    background: #ff7d4d;
+}
+
+.view-btn {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    padding: 15px;
+    border: 1px solid #303038;
+    border-radius: 10px;
+    background: transparent;
+    color: #f5f5f5;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.view-btn:hover {
+    border-color: #ff6b35;
+    color: #ff6b35;
+}
+
+.footer {
+    margin-top: 18px;
+    text-align: center;
+    color: #555;
+    font-size: 12px;
+}
+
+
+/* =========================
+   FOODS PAGE
+   ========================= */
+
+.foods-page {
+    width: 90%;
+    max-width: 1100px;
+    padding: 60px 0;
+}
+
+.foods-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 45px;
+}
+
+.foods-header h1 {
+    font-size: 58px;
+    line-height: 1;
+    letter-spacing: -3px;
+    margin-bottom: 15px;
+}
+
+.foods-header h1 span {
+    color: #ff6b35;
+}
+
+.foods-header p {
+    color: #777;
+    font-size: 16px;
+}
+
+.back-btn {
+    padding: 12px 18px;
+    border: 1px solid #303038;
+    border-radius: 10px;
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.back-btn:hover {
+    border-color: #ff6b35;
+    color: #ff6b35;
+}
+
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.food-card {
+
+    display: block;
+    text-decoration: none;
+    color: inherit;
+
+    background: #15151a;
+    border: 1px solid #29292f;
+    border-radius: 16px;
+    padding: 25px;
+    transition: 0.25s;
+}
+
+.food-card:hover {
+    transform: translateY(-4px);
+    border-color: #ff6b35;
+}
+
+.food-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.food-id {
+    color: #555;
+    font-size: 12px;
+    font-family: monospace;
+}
+
+.status {
+    padding: 5px 9px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.status.available {
+    background: rgba(70, 200, 120, 0.1);
+    color: #5fd68a;
+}
+
+.status.unavailable {
+    background: rgba(255, 80, 80, 0.1);
+    color: #ff7070;
+}
+
+.food-name {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.food-price {
+    color: #ff6b35;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    border: 1px dashed #303038;
+    border-radius: 16px;
+}
+
+.empty-icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.empty-state h2 {
+    margin-bottom: 8px;
+}
+
+.empty-state p {
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.add-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 10px;
+    background: #ff6b35;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 800px) {
+
+    .food-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .foods-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 750px) {
+
+    .container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 40px 0;
+    }
+
+    .intro h1 {
+        font-size: 44px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .food-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .foods-header h1 {
+        font-size: 44px;
+    }
+}
+
+/* =========================
+   FOOD DETAILS PAGE
+   ========================= */
+
+.details-page {
+    width: 90%;
+    max-width: 850px;
+    padding: 50px 0;
+}
+
+.details-back {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: #777;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.details-back:hover {
+    color: #ff6b35;
+}
+
+.details-card {
+    background: #15151a;
+    border: 1px solid #29292f;
+    border-radius: 22px;
+    padding: 40px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+}
+
+.details-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 70px;
+}
+
+.details-id {
+    color: #555;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+.details-content {
+    text-align: center;
+    padding: 20px 0 50px;
+}
+
+.details-label {
+    color: #777;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.details-content h1 {
+    font-size: 56px;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+}
+
+.details-price {
+    color: #ff6b35;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.details-divider {
+    height: 1px;
+    background: #29292f;
+    margin-bottom: 10px;
+}
+
+.details-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 25px 0;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.info-label {
+    color: #555;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-value {
+    color: #ddd;
+    font-size: 14px;
+}
+
+.details-button {
+    display: block;
+    margin-top: 20px;
+    padding: 14px;
+    border: 1px solid #303038;
+    border-radius: 10px;
+    color: #ddd;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.details-button:hover {
+    background: #ff6b35;
+    border-color: #ff6b35;
+    color: white;
+}
+
+@media (max-width: 600px) {
+
+    .details-card {
+        padding: 25px;
+    }
+
+    .details-content h1 {
+        font-size: 40px;
+    }
+
+    .details-info {
+        grid-template-columns: 1fr;
+    }
+
+    .details-top {
+        margin-bottom: 40px;
+    }
+}
+

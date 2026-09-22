@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Food Details</title>
+
+    <link rel="stylesheet" th:href="@{/style/style.css}">
+
+</head>
+
+<body>
+
+<div class="details-page">
+
+    <a href="/foods" class="details-back">
+        ← Back to Menu
+    </a>
+
+
+    <div class="details-card">
+
+        <div class="details-top">
+
+            <span class="details-id"
+                  th:text="'#' + ${food.id}">
+                #1
+            </span>
+
+            <span class="status"
+                  th:classappend="${food.isAvailable} ? ' available' : ' unavailable'"
+                  th:text="${food.isAvailable} ? 'Available' : 'Unavailable'">
+                Available
+            </span>
+
+        </div>
+
+
+        <div class="details-content">
+
+            <div class="details-label">
+                FOOD ITEM
+            </div>
+
+            <h1 th:text="${food.foodName}">
+                Chicken Biryani
+            </h1>
+
+            <div class="details-price">
+                ₹<span th:text="${food.price}">180</span>
+            </div>
+
+        </div>
+
+
+        <div class="details-divider"></div>
+
+
+        <div class="details-info">
+
+            <div class="info-item">
+                <span class="info-label">Food ID</span>
+                <span class="info-value"
+                      th:text="${food.id}">
+                    1
+                </span>
+            </div>
+
+            <div class="info-item">
+                <span class="info-label">Status</span>
+                <span class="info-value"
+                      th:text="${food.isAvailable} ? 'Available for ordering' : 'Currently unavailable'">
+                    Available for ordering
+                </span>
+            </div>
+
+            <div class="info-item">
+                <span class="info-label">Price</span>
+                <span class="info-value">
+                    ₹<span th:text="${food.price}">180</span>
+                </span>
+            </div>
+
+        </div>
+
+
+        <a href="/foods" class="details-button">
+            Back to All Foods
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
+

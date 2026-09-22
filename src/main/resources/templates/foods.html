@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Food Menu</title>
+
+    <link rel="stylesheet" th:href="@{/style/style.css}">
+</head>
+
+<body>
+
+<div class="foods-page">
+
+    <div class="foods-header">
+
+        <div>
+            <div class="tag">Food Management System</div>
+
+            <h1>
+                Food <span>Menu.</span>
+            </h1>
+
+            <p>
+                All food items currently available in your database.
+            </p>
+        </div>
+
+        <a href="/" class="back-btn">
+            ← Add Food
+        </a>
+
+    </div>
+
+
+    <div class="food-grid">
+
+        <a class="food-card"
+           th:each="food : ${foods}"
+           th:href="@{/foods/{id}(id=${food.id})}">
+
+            <div class="food-top">
+
+                <span class="food-id"
+                      th:text="'#' + ${food.id}">
+                    #1
+                </span>
+
+                <span class="status"
+                      th:classappend="${food.isAvailable} ? ' available' : ' unavailable'"
+                      th:text="${food.isAvailable} ? 'Available' : 'Unavailable'">
+                    Available
+                </span>
+
+            </div>
+
+            <div class="food-name"
+                 th:text="${food.foodName}">
+                Chicken Biryani
+            </div>
+
+            <div class="food-price">
+                ₹<span th:text="${food.price}">180</span>
+            </div>
+
+        </a>
+
+    </div>
+
+
+    <div class="empty-state" th:if="${#lists.isEmpty(foods)}">
+
+        <div class="empty-icon">🍽</div>
+
+        <h2>No food items yet</h2>
+
+        <p>
+            Add your first food item to see it here.
+        </p>
+
+        <a href="/" class="add-btn">
+            + Add Food
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

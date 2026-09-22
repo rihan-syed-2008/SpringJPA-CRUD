@@ -41,4 +41,12 @@ public class FoodService
     foodRepository.deleteById(id);
     return ResponseEntity.noContent().build();
   }
+
+  public List<Food> getFoodList() {
+    return foodRepository.findAll();
+  }
+
+  public Food findFoodById(Long id) {
+    return foodRepository.findById(id).orElse(null);
+  }
 }
